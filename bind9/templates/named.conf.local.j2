@@ -3,7 +3,3 @@ zone "{{ domain.name }}" {
     file "/etc/bind/db.{{ domain.name }}";
 };
 
-zone "{{ domain.cidr.split('.')[0:3] | reverse | join('.') }}.in-addr.arpa" {
-    type master;
-    file "/etc/bind/db.{{ domain.cidr.split('.')[0:3] | join('.') }}";
-};

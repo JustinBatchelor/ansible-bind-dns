@@ -9,10 +9,13 @@ $TTL    604800
                      2419200   ; Expire
                       604800 ) ; Negative Cache TTL
 ;
+; A Records
+{% for record in domain.records %}
+{{ record.name }}   IN  {{ record.type }}  {{ record.ip }}
+{% endfor %}
+
+;
 @       IN      NS      ns.{{ domain.name }}.
 {% for record in domain.forward_only_records %}
 {{ record.name }}   IN  {{ record.type }}   {{ record.ip }}
 {% endfor%}
-{% for record in domain.records %}
-{{ record.name }}   IN  {{ record.type }}   {{ record.ip }}
-{% endfor %}

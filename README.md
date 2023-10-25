@@ -4,6 +4,10 @@
 
 A simple ansible role that will ensure the dns records for a particular domain are configured for you bind DNS server.
 
+## Dependancies
+- `Python 3.10+`
+- `Ansible 2.10+`
+
 ## How to use
 
 1. Edit the inventory file and update the `dns` group to your DNS server running bind

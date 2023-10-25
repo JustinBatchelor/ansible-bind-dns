@@ -28,16 +28,19 @@ domain:
       type: A
       ip: "192.168.1.1"
   records:
-    - name: jbpc
+    - name: 'api.ocp-sno-test-2'
       type: A
-      ip: "192.168.1.33"
+      ip: "192.168.1.182"
+    - name: '*.apps.ocp-sno-test-2'
+      type: A
+      ip: "192.168.1.182"
 
-named_options_path: "{{ playbook_dir }}/named.conf.options" # /etc/bind/named.conf.options
-named_forward_path: "{{ playbook_dir }}/db.{{ domain.name }}" # /etc/bind/forward
-named_reverse_path: "{{ playbook_dir }}/db.{{ domain.cidr.split('.')[0:3] | join('.') }}" # /etc/bind/reverse
-named_conf_path: "{{ playbook_dir }}/named.conf.local" # /etc/bind/named.conf.local  
+# named_options_path: "{{ playbook_dir }}/named.conf.options" # /etc/bind/named.conf.options
+# named_forward_path: "{{ playbook_dir }}/db.{{ domain.name }}" # /etc/bind/forward
+# named_reverse_path: "{{ playbook_dir }}/db.{{ domain.cidr.split('.')[0:3] | join('.') }}" # /etc/bind/reverse
+# named_conf_path: "{{ playbook_dir }}/named.conf.local" # /etc/bind/named.conf.local  
 
-# named_options_path: "{{ bind9_path }}named.conf.options" # /etc/bind/named.conf.options
-# named_forward_path: "{{ bind9_path }}db.{{ domain.name }}" # /etc/bind/forward
-# named_reverse_path: "{{ bind9_path }}db.{{ domain.cidr.split('.')[0:3] | join('.') }}" # /etc/bind/reverse
-# named_conf_path: "{{ bind9_path }}named.conf.local" # /etc/bind/named.conf.local
+named_options_path: "{{ bind9_path }}named.conf.options" # /etc/bind/named.conf.options
+named_forward_path: "{{ bind9_path }}db.{{ domain.name }}" # /etc/bind/forward
+named_reverse_path: "{{ bind9_path }}db.{{ domain.cidr.split('.')[0:3] | join('.') }}" # /etc/bind/reverse
+named_conf_path: "{{ bind9_path }}named.conf.local" # /etc/bind/named.conf.local
