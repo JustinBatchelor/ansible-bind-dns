@@ -1,0 +1,16 @@
+---
+- name: Playbook to configure bind9 dns server
+  hosts: dns
+  become: yes
+  vars_prompt:
+    - name: "remote_user"
+      prompt: "please enter your remote user"
+
+    - name: "ansible_become_pass"
+      prompt: "please enter your sudo password"
+      private: no
+
+  tasks:
+    - name: include role to configure bind9
+      ansible.builtin.include_role:
+        name: bind9

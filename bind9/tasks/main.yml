@@ -1,0 +1,18 @@
+---
+# tasks file for bind9
+
+# task to ensure bind9 is installed
+- name: include configure-bind9.yml
+  ansible.builtin.include_tasks: configure-bind9.yml
+
+# task to ensure that bind9 options are configured
+- name: include template-options tasks
+  ansible.builtin.include_tasks: template-options.yml
+
+# task to create file for domains forward DNS records
+- name: include template-dns-records tasks
+  ansible.builtin.include_tasks: template-dns-records.yml
+
+# task to restart bind9 service
+- name: include restart-bind9 tasks
+  ansible.builtin.include_tasks: restart-bind9.yml

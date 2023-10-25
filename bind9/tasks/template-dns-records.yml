@@ -1,0 +1,16 @@
+---
+- name: template forward dns records
+  ansible.builtin.template:
+    src: templates/db.forward.j2
+    dest: "{{ named_forward_path }}"
+    owner: root
+    group: bind
+    mode: '0644'
+
+- name: template reverse dns records
+  ansible.builtin.template:
+    src: templates/db.reverse.j2
+    dest: "{{ named_reverse_path }}"
+    owner: root
+    group: bind
+    mode: '0644'

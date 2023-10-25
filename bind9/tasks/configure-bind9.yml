@@ -1,0 +1,6 @@
+---
+- name: ensure that bind9 package is installed for devian based systems
+  ansible.builtin.apt:
+    name: bind9
+    state: present
+  when: ansible_os_family == "Debian"

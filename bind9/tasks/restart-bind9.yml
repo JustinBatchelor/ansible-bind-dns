@@ -1,0 +1,6 @@
+---
+- name: task to restart bind9 service
+  ansible.builtin.service:
+    name: bind9
+    state: restarted
+    enabled: yes

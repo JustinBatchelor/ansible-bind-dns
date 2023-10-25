@@ -1,0 +1,18 @@
+---
+- name: template named.conf.options file
+  ansible.builtin.template:
+    src: templates/named.conf.options.j2
+    dest: "{{ named_options_path }}"
+    owner: root
+    group: bind
+    mode: '0644'
+
+- name: template named.conf.local file
+  ansible.builtin.template:
+    src: templates/named.conf.local.j2
+    dest: "{{ named_conf_path }}"
+    owner: root
+    group: bind
+    mode: '0644'
+
+    
